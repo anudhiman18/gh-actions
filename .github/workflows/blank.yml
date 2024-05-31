@@ -16,6 +16,13 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v3
+      
+      - name: List root directory files
+        run: ls -al
+      
+      - name: List project directory files
+        run: ls -al path/to/your/project # Adjust this path if necessary
+      
       - name: Install Dependencies
         run: |
           if [ -f package-lock.json ]; then
@@ -23,6 +30,8 @@ jobs:
           else
             npm install
           fi
+        working-directory: path/to/your/project # Adjust this path if necessary
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -30,3 +39,4 @@ jobs:
           path: |
             my-files
             package.json
+        working-directory: path/to/your/project # Adjust this path if necessary
