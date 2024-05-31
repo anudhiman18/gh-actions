@@ -23,6 +23,7 @@ jobs:
           else
             npm install
           fi
+        working-directory: ./path/to/your/project
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
