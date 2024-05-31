@@ -21,7 +21,7 @@ jobs:
         run: ls -al
       
       - name: List project directory files
-        run: ls -al path/to/your/project # Adjust this path if necessary
+        run: ls -al 
       
       - name: Install Dependencies
         run: |
