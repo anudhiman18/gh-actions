@@ -1,109 +1,27 @@
 name: Practice Workflow
 on: [push, workflow_dispatch]
+
 jobs:
-   first-job: 
-      runs-on: ubuntu-latest
-      steps:
-        - name: Say Hiiii!
-          run: echo "Hiiii!"
-        - name: Say Good Bye
-          run : echo "Good Bye"
-   second-job:
-          needs: first-job
-          runs-on: ubuntu-latest
-          steps:
-          -name: Get code
-          uses: actions/checkout@v3
-          -name: Install Dependencies
-           run: npm ci
-          -name: Upload artifacts
-           uses: actions/upload-artifacts@v3
-         with:
-            name: my-files
-            path: |
-               my-files
-               package.json
+  first-job: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hiiii!
+        run: echo "Hiiii!"
+      - name: Say Good Bye
+        run: echo "Good Bye"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# name: Practice Workflow
-# on: workflow_dispatch
-# jobs:
-#    first-job: 
-#       runs-on: ubuntu-latest
-#          steps:
-#         - name: Say Hiiii!
-#           run: echo "Hiiii!"
-#         - name: Say Good Bye
-#           run : echo "Good Bye"
-#    second-job:
-#           runs-on: ubuntu-latest
-#           steps:
-#         -name: Get code
-#           uses: actions/checkout@v3
-#         -name: Deploy Code 
-#           run: echo "deploying the code..."
-
-
-
-# name: Practice Workflow
-# on: 
-# pull_request: 
-#    types:
-#     - opened
-#   workflow_dispatch:
-# jobs:
-#    first-job: 
-#       runs-on: ubuntu-latest
-#          steps:
-#         - name: Say Hiiii!
-#           run: echo "Hiiii!"
-#         - name: Say Good Bye
-#           run : echo "Good Bye"
-#    second-job:
-#           runs-on: ubuntu-latest
-#           steps:
-#         -name: Get code
-#           uses: actions/checkout@v3
-#         -name: Deploy Code 
-#           run: echo "deploying the code..."
-
-
-
-
-
-           
-
-#            name: Practice Workflow
-# on: workflow_dispatch
-# jobs:
-#    first-job: 
-#       runs-on: ubuntu-latest
-#       steps:
-#         - name: Say Hiiii!
-#           run: echo "Hiiii!"
-#         - name: Say Good Bye
-#           run : echo "Good Bye"
-#    second-job:
-#           runs-on: ubuntu-latest
-#           steps:
-#             - name: Get code
-#               uses: actions/checkout@v3
-#             - name: Deploy Code 
-#               run: echo "deploying the code..."
-           
+  second-job:
+    needs: first-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install Dependencies
+        run: npm ci
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-files
+          path: |
+            my-files
+            package.json
