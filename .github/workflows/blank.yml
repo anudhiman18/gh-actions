@@ -30,7 +30,7 @@ jobs:
           else
             npm install
           fi
-        working-directory: path/to/your/project # Adjust this path if necessary
+        # working-directory: path/to/your/project # Adjust this path if necessary
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
@@ -39,4 +39,4 @@ jobs:
           path: |
             my-files
             package.json
-        working-directory: path/to/your/project # Adjust this path if necessary
+        # working-directory: path/to/your/project # Adjust this path if necessary
